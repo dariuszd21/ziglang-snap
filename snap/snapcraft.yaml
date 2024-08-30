@@ -1,0 +1,56 @@
+name: ziglang
+base: core24
+version: '0.13.0'
+license: MIT
+summary: Zig is a general-purpose programming language
+description: |
+  Zig is a general-purpose programming language and toolchain
+  for maintaining robust, optimal and reusable software.
+
+   ⚡ A Simple Languag
+
+  Focus on debugging your application rather than debugging your programming language knowledge.
+
+  - No hidden control flow.
+  - No hidden memory allocations.
+  - No preprocessor, no macros.
+
+  ⚡ Comptime
+
+  A fresh approach to metaprogramming based on compile-time code execution and lazy evaluation.
+
+  - Call any function at compile-time.
+  - Manipulate types as values without runtime overhead.
+  - Comptime emulates the target architecture.
+    
+  ⚡ Maintain it with Zig
+
+  Incrementally improve your C/C++/Zig codebase.
+
+  Use Zig as a zero-dependency, drop-in C/C++ compiler that supports cross-compilation out-of-the-box.
+  Leverage zig build to create a consistent development environment across all platforms.
+  Add a Zig compilation unit to C/C++ projects, exposing the rich standard library to your C/C++ code.
+
+grade: devel
+confinement: devmode
+
+apps:
+  zig:
+    command: zig
+  zls:
+    command: zls
+    
+
+parts:
+  zig:
+    plugin: dump
+    source: https://ziglang.org/download/${CRAFT_PROJECT_VERSION}/zig-linux-x86_64-${CRAFT_PROJECT_VERSION}.tar.xz
+  zls:
+    plugin: dump
+    source: https://github.com/zigtools/zls/releases/download/${CRAFT_PROJECT_VERSION}/zls-x86_64-linux.tar.xz
+    organize:
+      LICENSE: share/zls/LICENSE
+      README.md: share/zls/README.md
+
+platforms:
+  amd64:
