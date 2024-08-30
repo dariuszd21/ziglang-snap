@@ -31,8 +31,7 @@ description: |
   Leverage zig build to create a consistent development environment across all platforms.
   Add a Zig compilation unit to C/C++ projects, exposing the rich standard library to your C/C++ code.
 
-grade: devel
-confinement: devmode
+confinement: classic
 
 apps:
   zig:
